@@ -39,10 +39,10 @@ public class TimeEntry {
 
     @Override
     public String toString() {
-        return "TimeEntry{" +
-                "description='" + description + '\'' +
-                ", rate=" + rate +
-                ", time=" + time +
-                '}';
+        return "TimeEntry{"
+               + "description='" + description + '\''
+               + ", rate=" + rate
+               + ", time=" + time
+               + '}';
     }
 }
