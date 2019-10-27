@@ -1,15 +1,15 @@
 pipeline {
   agent {
     docker {
-      image 'maven'
+      image 'maven:3-alpine'
+      args '-v /root/.m2:/root/.m2\''
     }
 
   }
   stages {
     stage('Check version control') {
-      agent any
       steps {
-        git(url: 'https://github.com/fcleyssac/time-tracker.git', changelog: true, poll: true)
+        sh 'mvn clean package'
       }
     }
     stage('Log') {
