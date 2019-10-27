@@ -23,6 +23,7 @@ pipeline {
       steps {
         sleep 4
         archiveArtifacts(fingerprint: true, artifacts: '*.xml', onlyIfSuccessful: true)
+        junit(testResults: '*.xml', allowEmptyResults: true, healthScaleFactor: 3, keepLongStdio: true)
       }
     }
   }
