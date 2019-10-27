@@ -1,29 +1,16 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
-      parallel {
-        stage('Build') {
-          agent any
-          steps {
-            sh 'echo "test1"'
-          }
-        }
-        stage('test 2') {
-          agent any
-          steps {
-            sleep(time: 1, unit: 'SECONDS')
-            echo 'test'
-          }
-        }
+    stage('Check version control') {
+      agent any
+      steps {
+        git(url: 'https://github.com/fcleyssac/time-tracker.git', changelog: true, poll: true)
       }
     }
     stage('Log') {
       agent any
       steps {
-        sleep 4
-        archiveArtifacts(fingerprint: true, artifacts: '*.xml', onlyIfSuccessful: true)
-        junit(testResults: '*.xml', allowEmptyResults: true, healthScaleFactor: 3, keepLongStdio: true)
+        sh 'mvn pmd:pmd findbugs:findbugs checkstyle:checkstyle'
       }
     }
   }
