@@ -7,15 +7,9 @@ pipeline {
 
   }
   stages {
-    stage('Check version control') {
+    stage('Build') {
       steps {
         sh 'mvn clean package'
-      }
-    }
-    stage('Log') {
-      agent any
-      steps {
-        sh 'mvn pmd:pmd findbugs:findbugs checkstyle:checkstyle'
       }
     }
   }
