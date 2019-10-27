@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'maven'
+    }
+
+  }
   stages {
     stage('Check version control') {
       agent any
