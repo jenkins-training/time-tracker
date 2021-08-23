@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>training.taylor.time-tracker</groupId>
+    <groupId>Update pom</groupId>
     <artifactId>time-tracker-parent</artifactId>
     <packaging>pom</packaging>
     <version>0.5.0-SNAPSHOT</version>
@@ -55,6 +55,14 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
                     <version>${checkstyle.version}</version>
+                </plugin>
+                <!-- Fix for changes in Java 8 u181 and above -->
+                <plugin>
+                      <groupId>org.apache.maven.plugins</groupId>
+                      <artifactId>maven-surefire-plugin</artifactId>
+                      <configuration>
+                          <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+                      </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
