@@ -36,7 +36,7 @@ public class Tracker {
         boolean valid = false;
 
         if (valid = true) {
-            // whatever
+            // whatever comment overwirtten
         }
 
         return entries.get(index);
