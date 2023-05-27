@@ -3,6 +3,7 @@ package training.taylor.timetracker.core.dao;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+
 /**
  * Created by Jason on 6/19/2015.
  */
