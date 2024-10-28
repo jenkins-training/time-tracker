@@ -13,7 +13,7 @@ import training.taylor.timetracker.core.dao.TimeEntry;
  * Created by Jason on 6/19/2015.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = TrackerCoreConfig.class)
+@ContextConfiguration(classes = {TrackerCoreConfig.class})
 public class TrackerTest {
     @Autowired
     private Tracker tracker;
